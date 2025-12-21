@@ -22,7 +22,7 @@ function prompt_new_ws() {
         esac
         
     done
-    printf "${LIGHT_BLUE_TXT}Please enter the WS name, will create ~/####_ws/src:${NC}\n"
+    printf "${LIGHT_BLUE_TXT}Please enter the WS name, will create /trim/####_ws/src:${NC}\n"
     read -p ":  " name
     createWS $type $name
 }
@@ -36,8 +36,8 @@ function createWS() {
         if [[ -z "${name}" ]]; then
             printf "${RED_TXT}ROS workspace name not specified.${NC}\n"
         else
-            mkdir -p ~/${name}_ws/src
-            set_current_ws ~/${name}_ws
+            mkdir -p /trim/${name}_ws/src
+            set_current_ws /trim/${name}_ws
             get_current_ws
             cd $curr_ws
             if [[ $type == "ROS1" ]]; then # Catkin found in ws
@@ -262,13 +262,13 @@ function rebuild_curr_ws() {
 }
 
 function find_ws() {
-    #ws=$(find ~/ -maxdepth 1 -type d -name \*ws\* | sort)
-    ws=$(find ~/ -maxdepth 1 -type d -name "*_ws" -not -name ".*" | sort)
+    #ws=$(find /trim -maxdepth 1 -type d -name \*ws\* | sort)
+    ws=$(find /trim -maxdepth 1 -type d -name "*_ws" -not -name ".*" | sort)
 
     # echo $ws
     arrIN=(${ws// / })
     # echo ${arrIN[2]}
-    printf "${GREEN_TXT}Workspaces in ~${NC}\n"
+    printf "${GREEN_TXT}Workspaces in /trim${NC}\n"
     # Search for longest ws name
     max_l=0
     for i in "${arrIN[@]}"; do
@@ -401,15 +401,15 @@ function rt() {
 }
 
 function fixJB() {
-    CLION_FILE=~/.local/share/applications/jetbrains-clion.desktop
-    PYCHARM_FILE=~/.local/share/applications/jetbrains-pycharm.desktop
-    PYCHARM_CE_FILE=~/.local/share/applications/jetbrains-pycharm-ce.desktop
+    CLION_FILE=/trim/.local/share/applications/jetbrains-clion.desktop
+    PYCHARM_FILE=/trim/.local/share/applications/jetbrains-pycharm.desktop
+    PYCHARM_CE_FILE=/trim/.local/share/applications/jetbrains-pycharm-ce.desktop
     if [ -f "$CLION_FILE" ]; then
         printf "${GREEN_TXT}Patching Clion shortcut.${NC}\n"
         sed -i -e 's/Exec="/Exec=bash -i -c "/g' $CLION_FILE
         sed -i -e 's/Name=CLion/Name=ROS flavored CLion/g' $CLION_FILE
     else
-        printf "${YELLOW_TXT}Clion not found in ~/.local/share/applications${NC}\n"
+        printf "${YELLOW_TXT}Clion not found in /trim/.local/share/applications${NC}\n"
     fi
     
     if [ -f "$PYCHARM_FILE" ]; then

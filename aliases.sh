@@ -3,7 +3,7 @@ if [[ ${SKIP} == 1 ]]; then
     return 1
 fi
 
-ROS2_NAME='foxy'
+ROS2_NAME='humble'
 if [[ $(lsb_release -cs) == 'xenial' ]]; then
     ROS1_NAME='kinetic'
 elif [[ $(lsb_release -cs) == 'bionic' ]]; then
@@ -11,7 +11,7 @@ elif [[ $(lsb_release -cs) == 'bionic' ]]; then
     ROS2_NAME='dashing'
 elif [[ $(lsb_release -cs) == 'focal' ]]; then
     ROS1_NAME='noetic'
-    ROS2_NAME='foxy'
+    ROS2_NAME='humble'
 fi
 
 
@@ -36,8 +36,8 @@ BOLDMAGENTA="\033[1m\033[35m" # /* Bold Magenta */
 BOLDCYAN="\033[1m\033[36m"    # /* Bold Cyan */
 BOLDWHITE="\033[1m\033[37m"   # /* Bold White */
 
-WS_FILE=$HOME/.ros_ws_selected
-ROS_DOMAIN_ID_FILE=$HOME/.ros_domain_id
+WS_FILE=/trim/.ros_ws_selected
+ROS_DOMAIN_ID_FILE=/trim/.ros_domain_id
 QUICK_COMMAND_FILE=.quick_command
 
 alias pR='printenv | grep -i -e ROS -e CATKIN -e CMAKE -e RMW'
@@ -45,7 +45,7 @@ alias sw='source_ws $(cat $WS_FILE)'
 alias sr='source /opt/ros/${ROS1_NAME}/setup.bash'
 alias csr='unROS; source /opt/ros/${ROS1_NAME}/setup.bash'
 alias sr2='source /opt/ros/${ROS2_NAME}/setup.bash'
-alias csr2='unROS; source /opt/ros/${ROS2_NAME}/setup.bash'
+alias csr2='unset CATKIN_INSTALL_INTO_PREFIX_ROOT CATKIN_SYMLINK_INSTALL; unROS; source /opt/ros/${ROS2_NAME}/setup.bash'
 
 alias cab='catkin build --summary'
 alias cob='colcon build --symlink-install'

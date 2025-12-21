@@ -23,7 +23,7 @@
 "\e[1;2Q": "sudo apt install -y ros-${ROS2_NAME}-\e\C-e"
 
 # Source bash, catkin etc.
-"\e[15~": "source ~/.bashrc\n"              # On F5
+"\e[15~": "source /trim/.bashrc\n"              # On F5
 
 # Rebuild the current workspace
 "\e[20~": "rebuild_curr_ws\n"               # On F9
@@ -31,7 +31,7 @@
 "\e[20;5~": "rebuild_curr_ws "--cmake-force-configure"\n"               # On Ctrl-F9
 
 # Colcon build specific package
-"\e[19~": "\e[Hpushd `cat ~/.ros_ws_selected` > /dev/null; colcon build --symlink-install --packages-select \e[F ; popd > /dev/null\n"
+"\e[19~": "\e[Hpushd `cat /trim/.ros_ws_selected` > /dev/null; colcon build --symlink-install --packages-select \e[F ; popd > /dev/null\n"
 
 "\e\C-i": "sudo apt install -y "
 "\e\C-p": "python3 -m pip install "
