@@ -36,8 +36,8 @@ BOLDMAGENTA="\033[1m\033[35m" # /* Bold Magenta */
 BOLDCYAN="\033[1m\033[36m"    # /* Bold Cyan */
 BOLDWHITE="\033[1m\033[37m"   # /* Bold White */
 
-WS_FILE=/trim/.ros_ws_selected
-ROS_DOMAIN_ID_FILE=/trim/.ros_domain_id
+WS_FILE=/trim-robotics/.ros_ws_selected
+ROS_DOMAIN_ID_FILE=/trim-robotics/.ros_domain_id
 QUICK_COMMAND_FILE=.quick_command
 
 alias pR='printenv | grep -i -e ROS -e CATKIN -e CMAKE -e RMW'

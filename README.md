@@ -17,22 +17,22 @@ sudo apt install tmux python-catkin-tools
 Clone the repo into some folder, for example:
 
 ```shell
-git clone https://github.com/yossioo/ROS-Hacks.git /trim/ROS-Hacks
+git clone https://github.com/yossioo/ROS-Hacks.git /trim-robotics/ROS-Hacks
 ```
 
 or if you like SSH😉:
 
 ```shell
-git clone git@github.com:yossioo/ROS-Hacks.git /trim/ROS-Hacks
+git clone git@github.com:yossioo/ROS-Hacks.git /trim-robotics/ROS-Hacks
 ```
 
 Navigate to the directory and execute the `setup.sh` script.
 
 ```shell
-cd /trim/ROS-Hacks;  bash setup.sh
+cd /trim-robotics/ROS-Hacks;  bash setup.sh
 ```
 
-The `/trim/.inputrc` file is saved to  `/trim/.inputrc.bak` prior to being overwritten.
+The `/trim-robotics/.inputrc` file is saved to  `/trim-robotics/.inputrc.bak` prior to being overwritten.
 
 Defaults for ROS versions are: Melodic for ROS1, and Dashing for ROS2. Adjust in `aliases.sh` if needed.
 
@@ -46,7 +46,7 @@ Few of them are presented below:
 | ------ | ------ |  ------ |
 | F3 | `select_ws` | Displays ROS workspace selection dialog. |
 | Shift-F3 | `prompt_new_ws` | Displays new ROS workspace creation dialog. |
-| F5 | `source /trim/.bashrc` | You know what it does :) |
+| F5 | `source /trim-robotics/.bashrc` | You know what it does :) |
 | F9 | `rebuild_curr_ws` | Re-builds the currently selected workspace and sources it. |
 | Shift-F12 | `set-quick-command` | Saves currently typed-in command for quick-launch<sup>1</sup>. |
 | F12 | `exec-quick-command` | Executes the saved command in detached tmux session. |
@@ -102,4 +102,4 @@ A simple UI for ROS workspace creation and selection is defined in several funct
 
 
 ## Removal
-Clear `/trim/.bashrc` file from the added lines. Delete the repo. Voilà!
+Clear `/trim-robotics/.bashrc` file from the added lines. Delete the repo. Voilà!
