@@ -46,7 +46,7 @@ function createWS() {
                 source_ws ${curr_ws}
                 elif [[ $type == "ROS2" ]]; then # Catkin found in ws
                 csr2
-                colcon build --symlink-install
+                colcon build --symlink-install --cmake-args -Wno-dev
                 source_ws ${curr_ws}
             else
                 printf "${RED_TXT}UNKNOWN ROS type.${NC}\n"
