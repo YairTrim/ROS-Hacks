@@ -65,6 +65,11 @@ function unROS() {
         if [[ $v == *"PWD"* ]]; then
             continue
         fi
+        # Discovery Server vars are ambient machine config (set via /etc/environment),
+        # not workspace state — keep them so the DS transport survives a ws re-source.
+        if [[ $v == "ROS_DISCOVERY_SERVER" || $v == "ROS_SUPER_CLIENT" ]]; then
+            continue
+        fi
         str=$(printenv $v)
         # Divide into array separated by colon
         arrIN=(${str//:/ })
