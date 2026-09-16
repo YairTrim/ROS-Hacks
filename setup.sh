@@ -17,9 +17,3 @@ if [[ -f /trim-robotics/.inputrc ]];then
     mv /trim-robotics/.inputrc ~/.inputrc.bak
 fi
 ln -nsf ${PWD}/inputrc ~/.inputrc
-
-# # Add crontab updater
-# crontab -l > mycron
-# echo "* 00 * * * $PWD/updater.sh" >> mycron
-# crontab mycron
-# rm mycron
